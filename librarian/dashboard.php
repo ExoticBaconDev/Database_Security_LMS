@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Librarian Dashboard</title>
+</head>
+<body>
+    <h1>Librarian Dashboard</h1>
+    <ul>
+        <li><a href="addbook.html">Add Book</a></li>
+        <li><a href="managebooks.html">Manage Books</a></li>
+    </ul>
+</body>
+</html>
