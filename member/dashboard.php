@@ -7,9 +7,8 @@
 <body>
     <h1>Welcome, Member</h1>
     <ul>
-        <li><a href="search_books.html">Search Books</a></li>
-        <li><a href="my_books.html">My Borrowed Books</a></li>
-        <li><a href="borrow_history.html">Borrowing History</a></li>
+        <li><a href="searchbooks.php">Search Books</a></li>
+        <li><a href="mybooks.php">My Borrowed Books</a></li>
     </ul>
 </body>
 </html>
