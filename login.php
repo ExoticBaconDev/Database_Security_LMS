@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Fetch user by email or username (depending on your schema)
-    $sql = "SELECT Id, Name, Email, Password, Role FROM Users WHERE Email = ? OR Name = ?";
+    $sql = "SELECT UserID, Name, Email, Password, Role FROM Users WHERE Email = ? OR Name = ?";
     $params = array($username, $username);
     $stmt = sqlsrv_query($conn, $sql, $params);
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
         if (password_verify($password, $user['Password'])) {
             // Password matched, start session
-            $_SESSION['user_id'] = $user['Id'];
+            $_SESSION['user_id'] = $user['UserID'];
             $_SESSION['user_name'] = $user['Name'];
             $_SESSION['user_role'] = $user['Role'];
 
