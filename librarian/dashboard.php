@@ -7,8 +7,8 @@
 <body>
     <h1>Librarian Dashboard</h1>
     <ul>
-        <li><a href="addbook.html">Add Book</a></li>
-        <li><a href="managebooks.html">Manage Books</a></li>
+        <li><a href="addbook.php">Add Book</a></li>
+        <li><a href="managebooks.php">Manage Books</a></li>
     </ul>
 </body>
 </html>
