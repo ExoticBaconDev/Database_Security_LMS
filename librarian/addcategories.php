@@ -56,11 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../css/addcategories.css">
 </head>
 <body>
-    <h1>Add Category</h1>
-
     <?php if (!empty($message)) echo "<p>$message</p>"; ?>
 
     <form method="POST">
+        <h1>Add Category</h1>
         <label>Category Name:</label>
         <input type="text" name="category_name" required><br><br>
 
