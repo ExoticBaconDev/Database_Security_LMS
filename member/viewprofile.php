@@ -36,15 +36,6 @@ $stmt = sqlsrv_query($conn, $sql, $params);
     <link rel="stylesheet" href="../css/viewprofile.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="books.php">Books</a></li>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
-
     <main>
         <?php
         if ($stmt && ($profile = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))) {
@@ -59,6 +50,7 @@ $stmt = sqlsrv_query($conn, $sql, $params);
             echo '<form method="GET" action="editprofile.php">';
             echo '<input type="hidden" name="id" value="' . htmlspecialchars($userId) . '">';
             echo '<button type="submit">Edit Profile</button>';
+            echo '<a href="dashboard.php"><button type="button">Back to Dashboard</button></a>';
             echo '</form>';
         } else {
             echo "<p>Profile not found.</p>";
