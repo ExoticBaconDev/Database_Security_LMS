@@ -38,6 +38,7 @@ $stmt = sqlsrv_query($conn, $sql, $params);
 <head>
     <meta charset="UTF-8">
     <title>Manage Users</title>
+    <link rel="stylesheet" href="../css/manageusers.css">
     <style>
         table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
         th { background-color: #f2f2f2; }
