@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 // Get current profile info for the form
 $sql = "SELECT Address, Phone, Age, Country FROM Profiles WHERE UserID = ?";
-$stmt = sqlsrv_query($conn, array($sql, $userId));
+$stmt = sqlsrv_query($conn, $sql, array($sql, $userId));
 $profile = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 ?>
 
