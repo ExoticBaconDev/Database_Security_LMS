@@ -50,7 +50,7 @@ $stmt = sqlsrv_query($conn, $sql, $params);
 </head>
 <body>
     <h1>My Borrowed Books</h1>
-    <a href="dashboard.php"><button type="button">Back</button></a>
+    <button type="button" onclick="window.location.href='dashboard.php'">Back</button>
     <?php if ($stmt && sqlsrv_has_rows($stmt)): ?>
         <table border="1">
             <tr>
