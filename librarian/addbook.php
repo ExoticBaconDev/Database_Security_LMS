@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = sqlsrv_connect("WINSVR2019", [
         "Database" => "LibraryDB",
         "Uid" => "php_user",
-        "PWD" => "Pa$$w0rd"
+        "PWD" => 'Pa$$w0rd'
     ]);
 
     if (!$conn) {
