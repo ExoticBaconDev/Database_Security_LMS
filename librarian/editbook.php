@@ -20,7 +20,7 @@ $bookID = $_GET['id'] ?? $_POST['id'];
 
 // Fetch existing book details
 $sql = "SELECT BookID, Title, Author, ISBN, CategoryID, PdfPath FROM Books WHERE BookID = ?";
-$stmt = sqlsrv_query($conn, array($bookID));
+$stmt = sqlsrv_query($conn, $sql, array($bookID));
 $book = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
 // Fetch all categories
