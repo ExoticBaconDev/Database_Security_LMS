@@ -52,6 +52,7 @@ $stmt = sqlsrv_query($conn, $sql, $params);
 </head>
 <body>
     <h1>Search Books</h1>
+    <a href="dashboard.php"><button type="button">Back</button></a>
     <form method="GET" action="">
         <input type="text" name="query" placeholder="Enter title or author" value="<?= htmlspecialchars($_GET['query'] ?? '') ?>">
         <select name="category">
