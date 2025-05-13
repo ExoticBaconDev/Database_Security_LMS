@@ -40,7 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             else if ($_SESSION['user_role'] == "Member") {
                 header("Location: member/dashboard.php"); exit;
             }
-            
+            else if ($_SESSION['user_role'] == "Admin") {
+                header("Location: admin/dashboard.php"); exit;
+            }
         } else {
             echo "<p>Invalid password.</p>";
         }
