@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Additional Information</title>
+    <link rel="stylesheet" href="css/additional.css">
 </head>
 <body>
     <h1>Provide Additional Information</h1>
