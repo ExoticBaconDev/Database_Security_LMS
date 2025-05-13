@@ -63,6 +63,7 @@ if (!$user) {
 <head>
     <meta charset="UTF-8">
     <title>Edit User</title>
+    <link rel="stylesheet" href="../css/edituser.css">
 </head>
 <body>
     <h1>Edit User</h1>
