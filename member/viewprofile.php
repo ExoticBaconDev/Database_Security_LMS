@@ -26,23 +26,48 @@ $sql = "SELECT u.Name, u.Email, p.Address, p.Phone, p.Age, p.Country
 $params = array($userId);
 $stmt = sqlsrv_query($conn, $sql, $params);
 
-if ($stmt && ($profile = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))) {
-    // Display profile
-    echo "<h1>Your Profile</h1>";
-    echo "<p><strong>Name:</strong> " . htmlspecialchars($profile['Name']) . "</p>";
-    echo "<p><strong>Email:</strong> " . htmlspecialchars($profile['Email']) . "</p>";
-    echo "<p><strong>Address:</strong> " . htmlspecialchars($profile['Address']) . "</p>";
-    echo "<p><strong>Phone:</strong> " . htmlspecialchars($profile['Phone']) . "</p>";
-    echo "<p><strong>Age:</strong> " . htmlspecialchars($profile['Age']) . "</p>";
-    echo "<p><strong>Country:</strong> " . htmlspecialchars($profile['Country']) . "</p>";
+// Begin HTML output
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="../css/viewprofile.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="books.php">Books</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
 
-    echo '<form method="GET" action="editprofile.php">';
-    echo '<input type="hidden" name="id" value="' . htmlspecialchars($userId) . '">';
-    echo '<button type="submit">Edit Profile</button>';
-    echo '</form>';
-} else {
-    echo "<p>Profile not found.</p>";
-}
+    <main>
+        <?php
+        if ($stmt && ($profile = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))) {
+            echo "<h1>Your Profile</h1>";
+            echo "<p><strong>Name:</strong> " . htmlspecialchars($profile['Name']) . "</p>";
+            echo "<p><strong>Email:</strong> " . htmlspecialchars($profile['Email']) . "</p>";
+            echo "<p><strong>Address:</strong> " . htmlspecialchars($profile['Address']) . "</p>";
+            echo "<p><strong>Phone:</strong> " . htmlspecialchars($profile['Phone']) . "</p>";
+            echo "<p><strong>Age:</strong> " . htmlspecialchars($profile['Age']) . "</p>";
+            echo "<p><strong>Country:</strong> " . htmlspecialchars($profile['Country']) . "</p>";
 
+            echo '<form method="GET" action="editprofile.php">';
+            echo '<input type="hidden" name="id" value="' . htmlspecialchars($userId) . '">';
+            echo '<button type="submit">Edit Profile</button>';
+            echo '</form>';
+        } else {
+            echo "<p>Profile not found.</p>";
+        }
+        ?>
+    </main>
+</body>
+</html>
+
+<?php
 sqlsrv_close($conn);
 ?>
