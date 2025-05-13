@@ -1,15 +1,10 @@
 <?php
-session_start(); // Make sure user session is active
-
-// Normally, you store logged-in user info in session. Here we assume UserID is stored.
-if (!isset($_SESSION['UserID'])) {
-    header("Location: login.php");
+session_start();
+if (!isset($_SESSION['UserID']) || $_SESSION['user_role'] !== 'Member') {
+    header("Location: ../login.php");
     exit;
 }
 
-$userID = $_SESSION['UserID'];
-
-// SQL Server connection info
 $serverName = "WINSVR2019";
 $connectionOptions = array(
     "Database" => "LibraryDB",
@@ -17,53 +12,37 @@ $connectionOptions = array(
     "PWD" => 'Pa$$w0rd'
 );
 
-// Connect to SQL Server
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 if ($conn === false) {
-    die(print_r(sqlsrv_errors(), true));
+    die("<p>Connection failed: " . print_r(sqlsrv_errors(), true) . "</p>");
 }
 
-// Query to fetch user and profile info
-$sql = "
-    SELECT 
-        u.Name, u.Email,
-        p.Address, p.Phone, p.Age, p.Country
-    FROM Users u
-    LEFT JOIN Profiles p ON u.UserID = p.UserID
-    WHERE u.UserID = ?
-";
-$params = array($userID);
+$userId = $_SESSION['UserID'];
+$sql = "SELECT u.Name, u.Email, p.Address, p.Phone, p.Age, p.Country
+        FROM Users u
+        LEFT JOIN Profiles p ON u.UserID = p.UserID
+        WHERE u.UserID = ?";
+
+$params = array($userId);
 $stmt = sqlsrv_query($conn, $sql, $params);
 
-if ($stmt && ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))) {
-    $name = $row['Name'];
-    $email = $row['Email'];
-    $address = $row['Address'] ?? 'Not provided';
-    $phone = $row['Phone'] ?? 'Not provided';
-    $age = $row['Age'] ?? 'Not provided';
-    $country = $row['Country'] ?? 'Not provided';
+if ($stmt && ($profile = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))) {
+    // Display profile
+    echo "<h1>Your Profile</h1>";
+    echo "<p><strong>Name:</strong> " . htmlspecialchars($profile['Name']) . "</p>";
+    echo "<p><strong>Email:</strong> " . htmlspecialchars($profile['Email']) . "</p>";
+    echo "<p><strong>Address:</strong> " . htmlspecialchars($profile['Address']) . "</p>";
+    echo "<p><strong>Phone:</strong> " . htmlspecialchars($profile['Phone']) . "</p>";
+    echo "<p><strong>Age:</strong> " . htmlspecialchars($profile['Age']) . "</p>";
+    echo "<p><strong>Country:</strong> " . htmlspecialchars($profile['Country']) . "</p>";
+
+    echo '<form method="GET" action="editprofile.php">';
+    echo '<input type="hidden" name="id" value="' . htmlspecialchars($userId) . '">';
+    echo '<button type="submit">Edit Profile</button>';
+    echo '</form>';
 } else {
-    die("Profile not found or query error.");
+    echo "<p>Profile not found.</p>";
 }
 
 sqlsrv_close($conn);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View Profile</title>
-</head>
-<body>
-    <h1>Your Profile</h1>
-    <p><strong>Name:</strong> <?= htmlspecialchars($name) ?></p>
-    <p><strong>Email:</strong> <?= htmlspecialchars($email) ?></p>
-    <p><strong>Address:</strong> <?= htmlspecialchars($address) ?></p>
-    <p><strong>Phone:</strong> <?= htmlspecialchars($phone) ?></p>
-    <p><strong>Age:</strong> <?= htmlspecialchars($age) ?></p>
-    <p><strong>Country:</strong> <?= htmlspecialchars($country) ?></p>
-
-    <a href="dashboard.php"><button type="button">Back to Dashboard</button></a>
-</body>
-</html>
