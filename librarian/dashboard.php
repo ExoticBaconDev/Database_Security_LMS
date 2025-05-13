@@ -10,5 +10,6 @@
         <li><a href="addbook.php">Add Book</a></li>
         <li><a href="managebooks.php">Manage Books</a></li>
     </ul>
+    <a href="../login.php"><button type="button">Logout</button></a>
 </body>
 </html>
