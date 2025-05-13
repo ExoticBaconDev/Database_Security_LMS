@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: member/dashboard.php"); exit;
             } elseif ($user['Role'] == "Admin") {
                 header("Location: admin/dashboard.php"); exit;
-            }
             } else {
                 echo "<p>Unknown role.</p>";
             }
