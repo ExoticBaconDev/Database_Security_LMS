@@ -75,9 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../css/addbook.css">
 </head>
 <body>
-    <h1>Add Book</h1>
     <?php if (!empty($message)) echo "<p>$message</p>"; ?>
     <form method="POST" enctype="multipart/form-data">
+        <h1>Add Book</h1>
         <label>Title:</label><input type="text" name="title" required><br>
         <label>Author:</label><input type="text" name="author" required><br>
         <label>ISBN:</label><input type="text" name="isbn" required><br>
