@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Librarian Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
     <h1>Librarian Dashboard</h1>
