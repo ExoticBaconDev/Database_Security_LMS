@@ -7,6 +7,7 @@
 <body>
     <h1>Welcome, Member</h1>
     <ul>
+        <li><a href="viewprofile.php">My Profile</a></li>
         <li><a href="searchbooks.php">Search Books</a></li>
     </ul>
     <a href="../login.php"><button type="button">Logout</button></a>
