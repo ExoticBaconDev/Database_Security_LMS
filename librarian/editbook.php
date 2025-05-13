@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if ($fileExt === "pdf") {
                 $newFileName = uniqid() . '_' . $fileName;
-                $uploadDir = "uploads/";
+                $uploadDir = "../uploads/";
                 $destPath = $uploadDir . $newFileName;
 
                 if (!is_dir($uploadDir)) {
