@@ -51,10 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="css/additional.css">
 </head>
 <body>
-    <h1>Provide Additional Information</h1>
     <?php if (isset($error)) echo "<p style='color:red;'>Error: $error</p>"; ?>
-
     <form method="POST">
+        <h1>Additional Information</h1>
         <label>Address:</label><br>
         <input type="text" name="address" required><br><br>
 
