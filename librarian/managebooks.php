@@ -55,7 +55,7 @@ $stmt = sqlsrv_query($conn, $sql, $params);
 <body>
     <h1>Manage Books</h1>
     <form method="GET" style="margin-bottom: 10px;">
-        <a href="dashboard.php"><button type="button">Back</button></a>
+        <button type="button" onclick="window.location.href='dashboard.php'">Back</button>
         <input type="text" name="search" placeholder="Search title or author" value="<?= htmlspecialchars($searchTerm) ?>">
         <button type="submit">Search</button>
     </form>
