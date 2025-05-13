@@ -49,6 +49,7 @@ $stmt = sqlsrv_query($conn, $sql, $params);
 <head>
     <meta charset="UTF-8">
     <title>Search Books</title>
+    <link rel="stylesheet" href="../css/searchbooks.css">
 </head>
 <body>
     <a href="dashboard.php"><button type="button">Back</button></a>
