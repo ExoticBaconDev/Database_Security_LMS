@@ -9,7 +9,6 @@
     <h1>Admin Dashboard</h1>
     <ul>
         <li><a href="manageusers.php">Manage Users</a></li>
-        <li><a href="addcategories.php">Add Categories</a></li>
     </ul>
     <a href="../login.php"><button type="button">Logout</button></a>
 </body>
