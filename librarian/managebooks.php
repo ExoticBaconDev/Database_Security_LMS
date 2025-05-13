@@ -43,15 +43,6 @@ $stmt = sqlsrv_query($conn, $sql, $params);
     <meta charset="UTF-8">
     <title>Manage Books</title>
     <link rel="stylesheet" href="../css/managebooks.css">
-    <style>
-        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
-        table { width: 100%; }
-        th { background-color: #f2f2f2; }
-        .add-button {
-            float: right;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
     <h1>Manage Books</h1>
