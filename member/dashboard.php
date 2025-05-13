@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Member Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
     <h1>Welcome, Member</h1>
