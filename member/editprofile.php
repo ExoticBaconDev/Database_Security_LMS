@@ -63,6 +63,7 @@ $profile = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Edit Profile</title>
+    <link rel="stylesheet" href="../css/editprofile.css">
 </head>
 <body>
     <h1>Edit Your Profile</h1>
