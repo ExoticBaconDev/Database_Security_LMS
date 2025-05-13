@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Email:</label><input type="email" name="email" required><br>
         <label>Password:</label><input type="password" name="password" required><br>
         <button type="submit">Register</button>
+        <button type="button" onclick="window.location.href='login.php'">Login</button>
     </form>
 </body>
 </html>
