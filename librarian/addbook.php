@@ -89,11 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $conn = sqlsrv_connect("WINSVR2019", [
                 "Database" => "LibraryDB",
                 "Uid" => "php_user",
-                "PWD" => "Pa$$w0rd"
+                "PWD" => 'Pa$$w0rd'
             ]);
 
             if ($conn) {
-                $categoryQuery = "SELECT CategoryID, CategoryName FROM Category";
+                $categoryQuery = "SELECT CategoryID, CategoryName FROM Categories";
                 $result = sqlsrv_query($conn, $categoryQuery);
 
                 while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
