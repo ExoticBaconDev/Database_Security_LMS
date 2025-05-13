@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
         if (password_verify($password, $user['Password'])) {
             // Password matched, start session
-            $_SESSION['UserID'] = $user['UserID']; // ✅ Needed for viewprofile.php
+            $_SESSION['UserID'] = $user['UserID'];
             $_SESSION['user_name'] = $user['Name'];
             $_SESSION['user_email'] = $user['Email'];
             $_SESSION['user_role'] = $user['Role'];
