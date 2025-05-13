@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("<p>Connection failed: " . print_r(sqlsrv_errors(), true) . "</p>");
     }
 
-    // Fetch user by email or username (depending on your schema)
+    // Fetch user by email or name
     $sql = "SELECT UserID, Name, Email, Password, Role FROM Users WHERE Email = ? OR Name = ?";
     $params = array($username, $username);
     $stmt = sqlsrv_query($conn, $sql, $params);
@@ -27,22 +27,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
         if (password_verify($password, $user['Password'])) {
             // Password matched, start session
-            $_SESSION['user_id'] = $user['UserID'];
+            $_SESSION['UserID'] = $user['UserID']; // ✅ Needed for viewprofile.php
             $_SESSION['user_name'] = $user['Name'];
+            $_SESSION['user_email'] = $user['Email'];
             $_SESSION['user_role'] = $user['Role'];
 
-            echo "<p>Login successful. Welcome, " . htmlspecialchars($user['Name']) . " (" . $user['Role'] . ")</p>";
             // Redirect based on role
-
-            if ($_SESSION['user_role'] == "Librarian") {
-                 header("Location: librarian/dashboard.php"); exit;
-            }
-            else if ($_SESSION['user_role'] == "Member") {
+            if ($user['Role'] == "Librarian") {
+                header("Location: librarian/dashboard.php"); exit;
+            } elseif ($user['Role'] == "Member") {
                 header("Location: member/dashboard.php"); exit;
-            }
-            else if ($_SESSION['user_role'] == "Admin") {
+            } elseif ($user['Role'] == "Admin") {
                 header("Location: admin/dashboard.php"); exit;
             }
+            } else {
+                echo "<p>Unknown role.</p>";
+            }
+
         } else {
             echo "<p>Invalid password.</p>";
         }
@@ -68,7 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Password:</label>
         <input type="password" name="password" required><br>
         <button type="submit">Login</button>
-        <button type="button" onclick="window.location.href='register.php'">Login</button>
     </form>
 </body>
 </html>
