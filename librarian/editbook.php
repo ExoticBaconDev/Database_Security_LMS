@@ -97,11 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../css/editbook.css">
 </head>
 <body>
-    <h1>Edit Book</h1>
-
     <?php if (isset($error)) echo "<p style='color:red;'>Error: $error</p>"; ?>
 
     <form method="POST" enctype="multipart/form-data">
+        <h1>Edit Book</h1>
         <input type="hidden" name="id" value="<?= $book['BookID'] ?>">
         <label>Title:</label><input type="text" name="title" value="<?= htmlspecialchars($book['Title']) ?>" required><br>
         <label>Author:</label><input type="text" name="author" value="<?= htmlspecialchars($book['Author']) ?>" required><br>
