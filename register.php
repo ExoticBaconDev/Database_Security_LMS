@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <h1>Register an Account</h1>
     <form method="POST" action="">
+        <h1>Register an Account</h1>
         <label>Name:</label><input type="text" name="name" required><br>
         <label>Email:</label><input type="email" name="email" required><br>
         <label>Password:</label><input type="password" name="password" required><br>
