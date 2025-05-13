@@ -1,6 +1,6 @@
 <?php
 // SQL Server connection setup
-$serverName = "WINSVR2019"; // adjust if needed
+$serverName = "WINSVR2019";
 $connectionOptions = array(
     "Database" => "LibraryDB",
     "Uid" => "php_user",
@@ -33,7 +33,7 @@ if (!empty($_GET['category'])) {
 }
 
 // Build search query
-$sql = "SELECT b.Title, b.Author, b.ISBN, c.CategoryName
+$sql = "SELECT b.Title, b.Author, b.ISBN, b.PdfPath, c.CategoryName
         FROM Books b
         LEFT JOIN Categories c ON b.CategoryID = c.CategoryID";
 
@@ -51,8 +51,8 @@ $stmt = sqlsrv_query($conn, $sql, $params);
     <title>Search Books</title>
 </head>
 <body>
+    <a href="dashboard.php"><button type="button">Back</button></a>
     <h1>Search Books</h1>
-    <button type="button" onclick="window.location.href='dashboard.php'">Back</button>
     <form method="GET" action="">
         <input type="text" name="query" placeholder="Enter title or author" value="<?= htmlspecialchars($_GET['query'] ?? '') ?>">
         <select name="category">
@@ -75,15 +75,18 @@ $stmt = sqlsrv_query($conn, $sql, $params);
                     <strong><?= htmlspecialchars($book['Title']) ?></strong> by <?= htmlspecialchars($book['Author']) ?> |
                     ISBN: <?= htmlspecialchars($book['ISBN']) ?> |
                     Category: <?= htmlspecialchars($book['CategoryName'] ?? 'Uncategorized') ?>
+                    <?php if (!empty($book['PdfPath'])): ?>
+                        | <a href="<?= htmlspecialchars($book['PdfPath']) ?>" target="_blank">View PDF</a>
+                    <?php endif; ?>
                 </li>
             <?php endwhile; ?>
         </ul>
     <?php else: ?>
         <p>No books found or query error.</p>
     <?php endif; ?>
-
 </body>
 </html>
 
 <?php sqlsrv_close($conn); ?>
+
 
