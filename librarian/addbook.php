@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // File upload variables
     $pdfFile = $_FILES['pdf'];
-    $uploadDir = "uploads/";
+    $uploadDir = "../uploads/";
     $pdfPath = null;
 
     // Connect to database
