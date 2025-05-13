@@ -1,0 +1,102 @@
+/* managebooks.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #e9ecef;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.add-button, .back-button {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.add-button button,
+.back-button button {
+    background-color: #28a745;
+}
+
+.add-button button:hover,
+.back-button button:hover {
+    background-color: #218838;
+}
+
+.back-button button {
+    background-color: #6c757d;
+}
+
+.back-button button:hover {
+    background-color: #5a6268;
+}
+
+td button {
+    background-color: #ffc107;
+    color: black;
+}
+
+td button:hover {
+    background-color: #e0a800;
+}
+
+td button:last-child {
+    background-color: #dc3545;
+    color: white;
+}
+
+td button:last-child:hover {
+    background-color: #c82333;
+}
+

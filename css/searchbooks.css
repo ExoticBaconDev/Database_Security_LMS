@@ -1,0 +1,93 @@
+/* General layout */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7f9;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+h1, h2 {
+    text-align: center;
+    color: #34495e;
+    margin-top: 20px;
+}
+
+/* Back button */
+a button {
+    margin: 20px;
+    background-color: #bdc3c7;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+a button:hover {
+    background-color: #95a5a6;
+}
+
+/* Search form */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+input[type="text"],
+select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1 1 250px;
+}
+
+button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Search results */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+li {
+    background-color: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-left: 5px solid #3498db;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+li a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
