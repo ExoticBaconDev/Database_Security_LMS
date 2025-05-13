@@ -8,7 +8,6 @@
     <h1>Welcome, Member</h1>
     <ul>
         <li><a href="searchbooks.php">Search Books</a></li>
-        <li><a href="mybooks.php">My Borrowed Books</a></li>
     </ul>
     <a href="../login.php"><button type="button">Logout</button></a>
 </body>
