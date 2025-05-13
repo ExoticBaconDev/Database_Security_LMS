@@ -88,7 +88,7 @@ if (!$user) {
         </select><br>
 
         <button type="submit">Save</button>
-        <a href="manageusers.php"><button type="button">Back</button></a>
+        <button type="button" onclick="window.location.href='manageusers.php'">Back</button>
     </form>
 </body>
 </html>
