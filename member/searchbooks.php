@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_name']) || $_SESSION['user_role'] !== 'Member') {
+    header("Location: ../login.php");
+    exit();
+}
+
 // SQL Server connection setup
 $serverName = "WINSVR2019";
 $connectionOptions = array(
