@@ -57,6 +57,7 @@ $stmt = sqlsrv_query($conn, $sql, $params);
     <h1>Manage Users</h1>
 
     <form method="GET" style="margin-bottom: 15px;">
+        <button type="button" onclick="window.location.href='dashboard.php'">Back</button>
         <input type="text" name="search" placeholder="Search by name or email" value="<?= htmlspecialchars($search) ?>">
         <select name="role">
             <option value="">All Roles</option>
