@@ -2,7 +2,8 @@
 // Only allow admin to access backup
 session_start();
 if (!isset($_SESSION['user_name']) || $_SESSION['user_role'] !== 'Admin') {
-    die("Access denied.");
+    header("Location: ../login.php");
+    exit();
 }
 
 $backupFile = "librarydb_backup_" . date("Y-m-d_H-i-s") . ".bak";
