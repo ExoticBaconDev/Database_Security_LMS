@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="category_name" required><br><br>
 
         <button type="submit" name="add">Add</button>
-        <button type="submit" name="back">Back</button>
+        <button type="button" onclick="window.location.href='dashboard.php'">Back</button>
     </form>
 </body>
 </html>
