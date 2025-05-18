@@ -91,7 +91,7 @@ if (!$user) {
         <label>Role:</label>
         <select name="role" required>
             <option value="Admin" <?= $user['Role'] === 'Admin' ? 'selected' : '' ?>>Admin</option>
-            <option value="Admin" <?= $user['Role'] === 'Librarian' ? 'selected' : '' ?>>Librarian</option>
+            <option value="Librarian" <?= $user['Role'] === 'Librarian' ? 'selected' : '' ?>>Librarian</option>
             <option value="User" <?= $user['Role'] === 'User' ? 'selected' : '' ?>>User</option>
         </select><br>
 
