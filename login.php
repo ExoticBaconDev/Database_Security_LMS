@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt && sqlsrv_has_rows($stmt)) {
         $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
-        if ($password == $user['Password']) {
+        if ($user && password_verify($password, $user['password'])) {
             // Password matched, start session
             $_SESSION['UserID'] = $user['UserID'];
             $_SESSION['user_name'] = $user['Name'];
